@@ -1,17 +1,15 @@
 import React from 'react'
 import '../css/cssComponents/cardPokemon.css'
-const cardPokemon = ({options, nome, img, tipo}) => {
+const cardPokemon = ({ nome, img, tipo, id}) => {
 
 
 
-  return (
-
-    <div className='card_Pokemon'>
-             <img src={img} alt={nome} className='img_card'/>
-            <h1>{nome}</h1>
-       
-    </div>
-  )
+  return <div className='card_Pokemon'>
+            <img src={img} alt={nome} className='img_card'/>
+            <h3 id={id}>{nome}</h3>
+            {tipo.map(ty => <p>{ty}</p>)}
+          </div>
+  
 
 
         //    <h2>img</h2>

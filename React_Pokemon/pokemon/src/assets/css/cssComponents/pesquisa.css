@@ -1,0 +1,16 @@
+
+
+.blocoBusca{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+.blocoBusca input{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid white;
+
+}

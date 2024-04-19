@@ -12,7 +12,7 @@ body{
 }
 
 
-.card_Pokemon{
+.card div{
     width: 150px;
     height: 215px;
     box-sizing: border-box;
@@ -26,7 +26,7 @@ body{
 
 
 
-.card_Pokemon h3{
+.card div h3{
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(24, 24, 24);
     font-weight: 500;

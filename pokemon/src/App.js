@@ -6,7 +6,7 @@ import Pesquisa from "./assets/Components/Pesquisa";
 function App() {
 
   const [options, setOptions] = React.useState([])
-  const [input, setInput] = React.useState('')
+  const [busca, setBusca] = React.useState('')
 
 
   const apiData = async () => {
@@ -26,16 +26,36 @@ function App() {
           console.log(error)
     }  
   }
+
   React.useEffect(() => {
     apiData()
   }, [])
 
-  const teste = options.map((item) => item.name)
-  console.log(teste)
+
+
+  const arrayNames = options.map(n => n.name)
+  const arrayFotos = options.map(f => f.sprites.front_default)
+  const lowerPesquisa = busca.toLocaleLowerCase()
+
+  const namesFiltradosGeral = arrayNames.filter((name) => name.toLocaleLowerCase().includes(lowerPesquisa))
+  const namesFiltradosInicial = arrayNames.filter((name) => busca.length>0 && name.startsWith(lowerPesquisa))
+
+  const elemento = namesFiltradosInicial
+  const idx = namesFiltradosInicial.map(element => arrayNames.indexOf(element))
+
+
+  idx.map(i => console.log(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png`))
+
+
+
+  //https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/50.png
+ 
+
   return (
     <> 
 
-      <Pesquisa setValue={setInput} value={input}/>
+      <Pesquisa setValue={setBusca} value={busca}/>
+      {namesFiltradosInicial.map(item => <li>{item}</li>)}
       <div className="card">
         {options.map(({sprites, name, types}) => (
           <CardPokemon img={sprites.front_default} nome={name[0].toLocaleUpperCase() + name.substring(1)} tipo={types.map(ty => ty.type.name)} />
@@ -53,3 +73,4 @@ export default App;
 // usar Split
 // usar join
 // usar incluides 
+
