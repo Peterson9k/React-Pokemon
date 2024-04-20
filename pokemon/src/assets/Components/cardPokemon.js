@@ -1,14 +1,11 @@
 import React from 'react'
-import '../css/cssComponents/cardPokemon.css'
-const cardPokemon = ({ nome, img, tipo}) => {
-
-
-
+export const CardPokemon = ({ nome, img, tipo}) => {
   return <div>
             <img src={img} alt={nome} />
             <h3>{nome}</h3>
-            {tipo.map(ty => <p>{ty}</p>)}
+            <ul>
+              {tipo.map((ty,index)=> <li key={index}>{ty}</li>)}
+            </ul>
+            
           </div>
 }
-
-export default cardPokemon

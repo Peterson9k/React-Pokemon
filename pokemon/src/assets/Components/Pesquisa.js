@@ -1,11 +1,11 @@
 import React from 'react'
-
-const Pesquisa = ({setValue, value}) => {
-
+import Img from '../img/pokemon-logo.webp'
+import '../css/cssComponents/pesquisa.css'
+export const Pesquisa = ({setValue, value}) => {
   
   return <div className='divBusca'>
-      <input type="text" onChange={({target}) => setValue(target.value)} value={value} />
+      <img src={Img} alt="logoPokemon" className='logo'/>
+        <input type="text" onChange={({target}) => setValue(target.value)} value={value} placeholder='Buscar...'/>
+      
   </div>
 }
-
-export default Pesquisa
